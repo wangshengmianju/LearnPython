@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import sys, re
 from util import *
 
