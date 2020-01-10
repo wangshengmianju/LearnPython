@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-import sys, re
+import os, sys, re
 from util import blocks, lines
 
-fileTobeturned = open('d:/软件/Programming/learning python/Python/LearnPython/Project One/test_input.txt')
-fileOutput = open('Python/LearnPython/Project One/text_output.html','w')
+fileTobeturned = open('Project One/test_input.txt')
+fileOutput = open('Project One/text_output.html','w')
 
 fileOutput.write('<html><head><title>...</title><body>\n')
 
