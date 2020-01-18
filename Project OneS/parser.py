@@ -8,7 +8,7 @@ class Parser:
     """
     A Parser reads a text file, applying rules and controlling a handler. 
     """
-    def __init__(self, handler):
+    def __init__(self, handler):       #  setup
         self.handler = handler 
         self.rules = [] 
         self.filters = []
@@ -19,8 +19,8 @@ class Parser:
             return re.sub(pattern, handler.sub(name), block) 
         self.filters.append(filter)
 
-    def parse(self, file): 
-        self.handler.start('document') 
+    def parse(self, file):              #  here is the common procedure
+        self.handler.start('document')  #  Assuming the head is always required
         for block in blocks(file):
             for filter in self.filters:
                 block = filter(block, self.handler) 
@@ -28,10 +28,10 @@ class Parser:
                     if rule.condition(block): 
                         last = rule.action(block, self.handler) 
                         if last: break
-        self.handler.end('document')
+        self.handler.end('document')   #  Assuming the end is always required
 
 
-class BasicTextParser(Parser):
+class BasicTextParser(Parser):        #  here is the difference of text file
     """
     A specific Parser that adds rules and filters in its constructor. 
     """
